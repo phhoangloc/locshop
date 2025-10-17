@@ -1,0 +1,31 @@
+POST http://localhost:4000/api/signup
+Content-Type: application/json
+
+{
+    "username":"locpham",
+    "password":"031090Ph@",
+    "email":"ph.hoangloc@gmail.com"
+}
+####
+POST http://localhost:4000/api/login
+Content-Type: application/json
+
+{
+    "username":"locpham",
+    "password":"031090Ph@"
+}
+###
+GET http://localhost:4000/api/alert
+
+####
+PUT   http://localhost:4000/api/admin/page/1
+Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzU3NDAxMzE0LCJleHAiOjE3NTc0ODc3MTR9.CMErtoES1I_QdBIt8RVsKRHIKEj3EiABUTa6w247SZc;
+Content-Type: application/json
+
+{
+    "name":"about",
+    "slug":"about",
+    "content":"this is about"
+}
+####
+GET https://app.rakuten.co.jp/services/api/IchibaItem/Ranking/20220601?format=json&affiliateId=4d5c5cbf.d5d0f387.4d5c5cc0.237cc945&genreId=566382&applicationId=1054709467074415269

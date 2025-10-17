@@ -1,0 +1,96 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+model User {
+  id          Int         @id @default(autoincrement())
+  archive     String      @default("user")
+  username    String      @unique
+  password    String 
+  email       String      @unique
+  active      Boolean     @default(false)
+  position    Role        @default(user)
+  createdAt   DateTime    @default(now())
+  blog        Blog[]
+  news        News[]
+  avataId     Int?           
+  avata       Pic?        @relation("UserAvata", fields: [avataId], references: [id])
+  pic         Pic[]
+}
+enum Role {
+  user
+  admin
+}
+model Page  {
+  id                Int           @id @default(autoincrement())
+  archive           String        @default("page") 
+  name              String    
+  slug              String        @unique
+  content           String?       @db.Text
+  createdAt         DateTime      @default(now())
+  updateDate        DateTime      @default(now())
+  draft             Boolean       @default(true)
+}
+model Blog  {
+  id                Int           @id @default(autoincrement())
+  archive           String        @default("blog")
+  hostId            Int
+  host              User          @relation(fields: [hostId], references: [id])   
+  name              String        
+  slug              String        @unique
+  content           String        @db.Text
+  draft             Boolean       @default(true)
+  createdAt         DateTime      @default(now())
+  updateDate        DateTime      @default(now())
+  categoryId        Int
+  category          Category      @relation(fields: [categoryId], references: [id])   
+}
+model Category  {
+  id                Int           @id @default(autoincrement())
+  archive           String        @default("category")
+  name              String        
+  createdAt         DateTime      @default(now())
+  blog              Blog[]
+}
+model News  {
+  id                Int           @id @default(autoincrement())
+  archive           String        @default("news")
+  hostId            Int
+  host              User          @relation(fields: [hostId], references: [id])   
+  name              String        
+  slug              String        @unique
+  content           String        @db.Text
+  draft             Boolean       @default(true)
+  createdAt         DateTime      @default(now())
+  updateDate        DateTime      @default(now())
+}
+model Pic {
+  id                Int           @id @default(autoincrement())
+  archive           String        @default("pic")
+  hostId            Int
+  host              User          @relation(fields: [hostId], references: [id])   
+  name              String      
+  createdAt         DateTime      @default(now())
+  avataOf           User[]        @relation("UserAvata")
+}
+model Product {
+  id                Int           @id @default(autoincrement())
+  archive           String        @default("product") 
+  name              String      
+  slug              String      
+  content           String        @db.Text
+  price             String
+  affiliateUrl      String  
+  mediumImageUrls   String        @db.Text
+  createdAt         DateTime      @default(now())
+}
