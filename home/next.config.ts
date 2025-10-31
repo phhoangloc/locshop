@@ -1,23 +1,21 @@
 import type { NextConfig } from "next";
 
+const hostnames = [
+  "thumbnail.image.rakuten.co.jp", "image.rakuten.co.jp", "tshop.r10s.jp", "shop.r10s.jp", "www.rakuten.ne.jp", "image.stream.cms.rakuten.co.jp"
+]
 const nextConfig: NextConfig = {
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: "thumbnail.image.rakuten.co.jp",
-        port: "",
-        pathname: "/**"
-      },
-    ],
+    remotePatterns:
+
+      hostnames.map(hostname => {
+        return {
+          protocol: 'https',
+          hostname: hostname,
+          port: "",
+          pathname: "/**"
+        }
+      })
   },
-  env: {
-    // api_url: "https://buoncf.jp:4000/",
-    api_url: "http://localhost:4000/",
-    ftp_url: "https://image.buoncf.jp/myblog/",
-
-  }
-
 };
 
 export default nextConfig;

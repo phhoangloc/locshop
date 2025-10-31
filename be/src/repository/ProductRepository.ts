@@ -7,8 +7,11 @@ export class ProductRepository {
             const result = await prisma.product.findMany({
                 where: {
                     id: query.id ? Number(query.id) : undefined,
+                    slug: query.slug ? query.slug : undefined,
                 },
-
+                orderBy: {
+                    createdAt: 'desc',
+                },
             })
             return result
         } catch (error) {

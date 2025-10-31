@@ -90,7 +90,7 @@ model Product {
   slug              String      
   content           String        @db.Text
   price             String
-  affiliateUrl      String  
+  affiliateUrl      String        @db.Text
   mediumImageUrls   String        @db.Text
   createdAt         DateTime      @default(now())
 }
