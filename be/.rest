@@ -1,0 +1,13 @@
+GET  http://localhost:4000/api/admin
+Content-Type: application/json
+Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNzYyNTA3ODU5fQ.NaoDi3dKXdWwWe64p_jWiM9TpanNyndqMH7V8qDi-bM
+###
+post http://localhost:4000/api/login
+Content-Type: application/json
+
+{
+    "username":"hoangloc",
+    "password":"031090Ph@"
+}
+###
+post http://localhost:4000/api/user/logout
