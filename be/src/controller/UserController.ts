@@ -17,10 +17,8 @@ export class UserController {
         }
 
     }
-
     async findUser(req: Request, res: Response) {
         const params = req.params
-        console.log(params)
         try {
             const result = await iUserService.findFirst(params)
             const success = result?.id ? true : false
@@ -52,12 +50,11 @@ export class UserController {
         }
 
     }
-
     async createUser(req: Request, res: Response) {
         const body = req.body
         try {
             const result = await iUserService.create(body)
-            res.json(returnDTO.message(true, result))
+            res.json(returnDTO.message(true, 'user account has been created'))
         } catch (error: any) {
             res.json(returnDTO.message(false, error.message))
 

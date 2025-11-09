@@ -21,8 +21,47 @@ model User {
   active      Boolean     @default(false)
   position    Role        @default(user)
   createdAt   DateTime    @default(now())
+  blogs       Blog[]
 }
 enum Role {
   user
   admin
+}
+model Product {
+  id                Int           @id @default(autoincrement())
+  archive           String        @default("product")
+  name              String        @db.Text
+  slug              String        @unique
+  keyword           String        @db.Text
+  description       String        @db.Text
+  content           String        @db.Text
+  images            String        @db.Text
+  affiliateUrl      String        @db.Text
+  price             String        @db.Text
+  createdAt         DateTime      @default(now())
+}
+model Blog  {
+  id                Int           @id @default(autoincrement())
+  archive           String        @default("blog")
+  hostId            Int
+  host              User          @relation(fields: [hostId], references: [id])   
+  name              String    
+  slug              String        @unique
+  description       String        @db.Text
+  keyword           String        @db.Text
+  content           String?       @db.Text
+  infor             String?       @db.Text
+  video             String?       @db.Text
+  cover             String        @db.Text
+  affiliateUrl      String        @db.Text
+  categoryId        Int
+  category          Category      @relation(fields: [categoryId], references: [id])
+  createdAt         DateTime      @default(now())
+  updateDate        DateTime      @default(now())
+}
+model Category{
+  id                Int           @id @default(autoincrement())
+  archive           String        @default("category")
+  name              String    
+  blogs             Blog[] 
 }
