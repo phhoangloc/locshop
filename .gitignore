@@ -18,7 +18,7 @@
 /frontend/out/
 
 # production
-/backend/build
+/be/build
 /frontend/build
 
 # misc
