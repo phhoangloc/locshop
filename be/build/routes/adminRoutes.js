@@ -1,0 +1,20 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.adminRouter = void 0;
+const express_1 = require("express");
+const IController_1 = require("../controller/IController");
+const userController = new IController_1.IUserController();
+const productController = new IController_1.IProductController();
+const iCategoryController = new IController_1.ICategoryController();
+const iBlogController = new IController_1.IBlogController();
+exports.adminRouter = (0, express_1.Router)();
+exports.adminRouter.get("/", userController.find);
+exports.adminRouter.get("/:id", userController.findUser);
+exports.adminRouter.post("/product", productController.create);
+exports.adminRouter.post("/category", iCategoryController.create);
+exports.adminRouter.put("/category/:id", iCategoryController.update);
+exports.adminRouter.delete("/category/:id", iCategoryController.delete);
+exports.adminRouter.post("/blog", iBlogController.create);
+exports.adminRouter.put("/blog/:id", iBlogController.update);
+exports.adminRouter.delete("/blog/:id", iBlogController.delete);
+//# sourceMappingURL=adminRoutes.js.map
