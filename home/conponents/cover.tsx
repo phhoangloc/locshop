@@ -27,7 +27,7 @@ const Cover = ({ name, description, image }: CoverType) => {
         </div>
       </div>
       <div className="py-8">
-        <div className="text-3xl font-bold px-4 text-center max-w-3xl m-auto">{name}</div>
+        <div className="text-3xl font-bold px-4 text-center max-w-3xl m-auto font-title">{name}</div>
         <div className="px-4 text-center my-8 max-w-[1200px] m-auto">{description}</div>
         <div className="flex w-max my-8 mx-auto gap-4">
           <div className="w-40 h-12 text-white bg-black flex flex-col justify-center text-center font-bold text-xl rounded-md">詳細を見る</div>

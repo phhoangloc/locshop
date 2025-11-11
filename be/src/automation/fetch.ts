@@ -9,7 +9,7 @@ export const getData = async (url: string) => {
     const html = await res.text();
     const response = await ai.models.generateContent({
         model: "gemini-2.5-flash",
-        contents: prompt("archive", { title: "hello", link: "hello", content: "hello" }, html)
+        contents: prompt("archive", { title: "hello", link: "hello" }, html)
     });
     const data = response.text
     const array = data ? JSON.parse(data) : []

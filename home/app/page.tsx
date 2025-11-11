@@ -16,7 +16,7 @@ export default function Home() {
 
   useEffect(() => {
     (async () => {
-      const result = await axios.get("http://localhost:4000/api/blog/2")
+      const result = await axios.get("http://localhost:4000/api/blog/1")
       set_name(result.data.data.name)
       set_description(result.data.data.description)
       set_image(JSON.parse(result.data.data.cover))
@@ -50,7 +50,7 @@ export default function Home() {
                 </div>
                 <div className="w-full sm:w-2/3">
                   <div className="uppercase text-sm opacity-75">{it.category.name}</div>
-                  <div className="line-clamp-2 font-bold text-base md:text-lg">{it.name}</div>
+                  <div className="line-clamp-2 text-base md:text-lg font-title font-bold">{it.name}</div>
                   <div className="h-8"></div>
                   <div className="line-clamp-4 text-sm md:text-base">{parse(it.content)}</div>
                 </div>

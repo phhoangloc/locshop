@@ -1,1 +1,10 @@
 @import "tailwindcss";
+
+@theme {
+    --font-text: "M PLUS Rounded 1c";
+    --font-title: "Kiwi Maru"
+}
+
+body {
+    font-family: var(--font-text);
+}

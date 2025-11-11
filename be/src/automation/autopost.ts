@@ -1,6 +1,6 @@
 import { GoogleGenAI } from "@google/genai";
 import { prompt } from "./promt";
-const ai = new GoogleGenAI({ apiKey: process.env.PRIVATE_KEY });
+const ai = new GoogleGenAI({ apiKey: process.env.API_KEY_GOOGLE });
 import fetch from "node-fetch";
 
 export const callAI = async (body: { title: string, link: string }, images?: string[]) => {

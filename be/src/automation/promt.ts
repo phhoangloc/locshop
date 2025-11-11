@@ -3,7 +3,7 @@ export const prompt = (type: string, body: { title: string, link: string }, html
         case "blog":
             return `
             Là một chuyên gia trong ngành marketing online ở Nhật Bản.
-            Hãy viêt một bài blog hấp dẫn, sinh động về địa điểm hoặc sự kiện dưới đây khoảng 1000 chữ bằng tiếng nhật.
+            Hãy viêt một bài blog hấp dẫn, sinh động về địa điểm hoặc sự kiện dưới đây khoảng 1500 chữ bằng tiếng Nhật dễ hiểu cho người nước ngoài có thể đọc.
             Hãy chèn hình ảnh minh họa (dùng những url này ${imgs}) chèn vào giữa các đoạn.
             Nếu không có ${imgs} thì không dùng <figure><img></img></figure>.
             Toàn bộ nội dung phải nằm trong <div class="blog-post"> ... </div>.
@@ -29,9 +29,9 @@ export const prompt = (type: string, body: { title: string, link: string }, html
 
   `;
         case "keyword":
-            return `Dựa vào tiêu đề ${body.title} hãy trả về một chuỗi keyword theo chuẩn SEO theo dạng string và cách nhau bằng dấu phẩy. chỉ xuất kết quả dạng string.`;
+            return `Dựa vào tiêu đề ${body.title} và ${html} hãy trả về một chuỗi keyword theo chuẩn SEO theo dạng string và cách nhau bằng dấu phẩy. chỉ xuất kết quả dạng string.`;
         case "description":
-            return `Dựa vào tiêu đề ${body.title} hãy trả về một đoạn description theo chuẩn SEO theo dạng string và khoảng 150 từ bằng tiếng Nhật. chỉ xuất kết quả dạng string.`;
+            return `Dựa vào tiêu đề ${body.title} và ${html} hãy trả về một đoạn description theo chuẩn SEO theo dạng string và khoảng 150 từ bằng tiếng Nhật. chỉ xuất kết quả dạng string.`;
         case "image":
             return `Tôi sẽ cung cấp cho bạn một đoạn mã HTML của một trang web trong đó là một bài viết. Nhiệm vụ của bạn là trích xuất chính xác URL của hình ảnh được sử dụng cho bài viết đó.
 
