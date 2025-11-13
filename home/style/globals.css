@@ -5,6 +5,36 @@
     --font-title: "Kiwi Maru"
 }
 
+.blog_content {
+    padding: 48px 0;
+}
+
+.blog_content h1 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.blog_content h2 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.blog_content p {
+    line-height: 1.75;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+.blog_content figure {
+    margin: 12px 0;
+}
+
+.blog_content figure img {
+    width: 100%;
+}
+
 body {
     font-family: var(--font-text);
 }

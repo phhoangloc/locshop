@@ -14,6 +14,7 @@ export class BlogRepository {
                     }
                 }
             },
+            take: query.limit ? Number(query.limit) : undefined,
             orderBy: {
                 createdAt: 'desc',
             },
